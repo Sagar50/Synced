@@ -52,7 +52,7 @@ def refresh_spotify_token(session_id):
 
     update_or_create_user_tokens(session_id, access_token, token_type, expires_in, refresh_token)
 
-def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
+def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False, search_=False):
 
     tokens = get_user_tokens(session_id)
     headers = {'Content-Type': 'application/json',
@@ -63,7 +63,10 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
     elif put_ == True:
         put(BASE_URL + endpoint, headers=headers)
     else:
-        response = get(BASE_URL + endpoint, {}, headers=headers)
+        if search_:
+            response = get("https://api.spotify.com/v1/" + endpoint, {}, headers=headers)
+        else:
+            response = get(BASE_URL + endpoint, {}, headers=headers)
     try:
         return response.json()
     except:
@@ -88,5 +91,8 @@ def get_queue(session_id):
     return execute_spotify_api_request(session_id, "player/queue")
 
 def search_song(session_id, query):
-    return execute_spotify_api_request(session_id, "search?q=" + query + "&type=track&limit=10&offset=10")
+    return execute_spotify_api_request(session_id, "search?q=" + query + "&type=track%2calbum%2Cartist&limit=20&offset=20", search_=True)
+
+def add_song(session_id, uri):
+    return execute_spotify_api_request(session_id, "player/queue?uri=" + uri, post_=True)
 

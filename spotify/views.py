@@ -181,4 +181,16 @@ class SearchSong(APIView):
         else:
            pass
         return Response({}, status.HTTP_204_NO_CONTENT)
-    
+
+class AddSong(APIView):
+    def post(self, request, format=None):
+
+        room_code = self.request.session.get('room_code')
+        room = Room.objects.filter(code=room_code)[0]
+
+        if self.request.session.session_key == room.host:
+            resp = add_song(room.host, request.data.get('song_uri'))
+            return Response(resp, status.HTTP_200_OK)
+        else:
+           pass
+        return Response({}, status.HTTP_204_NO_CONTENT)    

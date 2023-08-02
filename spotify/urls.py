@@ -14,4 +14,5 @@ urlpatterns = [
     path('seek', SeekSong.as_view()),
     path('get-queue', GetUserQueue.as_view()),
     path('search-song', SearchSong.as_view()),
+    path('add-song', AddSong.as_view()),
 ]
