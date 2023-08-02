@@ -11,11 +11,9 @@ export default class App extends React.Component {
     }
     render() {
         return (
-            <div className='center'>
-                <BrowserRouter>
-                    <HomePage />
-                </BrowserRouter>
-            </div>
+            <BrowserRouter>
+                <HomePage />
+            </BrowserRouter>
         )
     }
 }
