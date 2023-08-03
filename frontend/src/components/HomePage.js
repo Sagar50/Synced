@@ -42,8 +42,8 @@ function HomePage() {
                             <h1 className='text-2xl text-center my-auto flex-1 sm:flex p-2'>Synced</h1>
                         </div>
                         <div className='hidden sm:flex md:space-x-4'>
-                            <button className= 'flex-1 p-2 uppercase w-[140px] md:w-[180px] text-[#f5b079]' onClick={onJoinRoom}>Join a Room</button>
-                            <button className= 'flex-1 p-2 uppercase w-[140px] md:w-[180px] text-[#db3321]' onClick={onCreateRoom}>Create a Room</button>
+                            <button className= 'flex-1 p-2 uppercase w-[140px] md:w-[180px] text-[#db3321] hover:-translate-y-1 transition-all' onClick={onJoinRoom}>Join a Room</button>
+                            <button className= 'flex-1 p-2 uppercase w-[140px] md:w-[180px] text-[#db3321] hover:-translate-y-1 transition-all' onClick={onCreateRoom}>Create a Room</button>
                         </div>
                     </div>
                     <div className='md:flex mx-auto my-auto w-[65%] sm:w-[50%] md:w-[80%]'>

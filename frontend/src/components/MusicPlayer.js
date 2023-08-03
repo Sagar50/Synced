@@ -79,7 +79,7 @@ function MusicPlayer( { ...song  } ) {
                                     <p className="text-sm mt-1 text-white">{song.artist}</p>
                                 </div>
                             </div>
-                            <div className="flex justify-between items-center mt-8 flex-1">
+                            <div className="flex justify-between items-center mt-6 flex-1">
                                 
                                 <div className="hover:cursor-pointer" onClick={() => {prevSong()}}>
                                     <svg className="w-8 h-8" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 5h3v10H4V5zm12 0v10l-9-5 9-5z"/></svg>
